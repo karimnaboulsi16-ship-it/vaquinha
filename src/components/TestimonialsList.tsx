@@ -77,17 +77,26 @@ export default function TestimonialsList({ testimonials, donationUrl }: Testimon
 
       {donationUrl && (
         <div className="mt-8 pt-6 border-t border-zinc-800/80 text-center">
-          <p className="text-xs text-zinc-400 mb-3">
+          <p className="text-xs sm:text-sm text-zinc-300 font-medium mb-3">
             Faça como essas {testimonials.length} pessoas e ajude a salvar 47 cãezinhos agora:
           </p>
-          <a
-            href={donationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full py-4 px-6 text-lg font-black text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl shadow-lg shadow-emerald-900/30 transition-all transform active:scale-95"
-          >
-            💕 AJUDAR AGORA
-          </a>
+          <div className="relative inline-block w-full">
+            <div className="absolute -inset-1.5 rounded-2xl bg-green-500/40 blur-md animate-radar pointer-events-none -z-10" />
+            <a
+              href={donationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden inline-flex items-center justify-center w-full py-4 sm:py-5 px-6 text-xl sm:text-2xl font-black text-white bg-gradient-to-r from-emerald-600 via-green-500 to-emerald-500 hover:from-emerald-500 hover:via-green-400 hover:to-emerald-400 rounded-2xl border-2 border-emerald-300/80 shadow-[0_0_35px_rgba(34,197,94,0.7)] animate-bomb transition-all transform active:scale-95"
+            >
+              <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none animate-shimmer" />
+              <div className="relative flex items-center justify-center gap-2 z-10">
+                <span className="text-2xl">💕</span>
+                <span className="tracking-wide uppercase font-black drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                  AJUDAR AGORA
+                </span>
+              </div>
+            </a>
+          </div>
         </div>
       )}
     </section>

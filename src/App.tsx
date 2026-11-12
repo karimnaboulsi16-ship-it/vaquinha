@@ -12,7 +12,8 @@ import {
 } from './utils/donation';
 
 export default function App() {
-  const [isRevealed, setIsRevealed] = useState(false);
+  // Always revealed by default as requested: checkout and all testimonials visible below
+  const [isRevealed, setIsRevealed] = useState(true);
   const [donationUrl, setDonationUrl] = useState(getStoredDonationUrl);
   const [testimonials, setTestimonials] = useState(getStoredTestimonials);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
@@ -20,12 +21,8 @@ export default function App() {
   useEffect(() => {
     try {
       const params = new URLSearchParams(window.location.search);
-      if (
-        params.get('revealed') === 'true' ||
-        params.get('reveal') === '1' ||
-        params.get('autostart') === '1'
-      ) {
-        setIsRevealed(true);
+      if (params.get('revealed') === 'false' || params.get('reveal') === '0') {
+        setIsRevealed(false);
       }
       if (params.get('config') === 'true' || params.get('admin') === '1') {
         setIsAdminOpen(true);
