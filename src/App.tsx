@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
 import VideoPlayer from './components/VideoPlayer';
 import DonationCta from './components/DonationCta';
 import TestimonialsList from './components/TestimonialsList';
@@ -59,8 +58,6 @@ export default function App() {
       </div>
 
       <main className="w-full max-w-xl mx-auto px-4 pt-5 pb-12 flex-1 flex flex-col items-center">
-        <Header />
-
         <section className="w-full flex justify-center mb-6" aria-label="Vídeo de apresentação">
           <VideoPlayer onReveal={() => setIsRevealed(true)} isRevealed={isRevealed} />
         </section>
